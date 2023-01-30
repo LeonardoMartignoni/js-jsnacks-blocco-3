@@ -5,19 +5,26 @@
 // Chiedo all'utente un numero
 const userN = parseInt(prompt('Inserisci il numero degli array'))
 
+
+// Creo un array vuoto
+let userArray = [];
+
 // Inizializzo l'indice
 let i = 0;
 
 // Creo N array
 while (i < userN) {
 
-    // TODO: Creare un array
-
     for (x = 0; x < 10; x++) {
         const randomNumber = Math.floor(Math.random() * 100) + 1;
-        // array.push(randomNumber);
+        userArray.push(randomNumber);
     }
+
+    // Stampo l'array
+    console.log(userArray);
+
+    // Resetto l'array
+    userArray = [];
+
     i++;
 }
-
-// Stampo gli array
