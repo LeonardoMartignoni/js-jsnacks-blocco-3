@@ -30,7 +30,7 @@ genButton.addEventListener('click', function () {
         }
 
         // Stampo l'array
-        genResult.innerHTML += (`Array: ${userArray} <br>`);
+        genResult.innerHTML += (`${i + 1} Array: ${userArray} <br>`);
 
         // Resetto l'array
         userArray = [];
