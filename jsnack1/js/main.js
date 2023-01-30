@@ -1,17 +1,27 @@
-// Chiedo all'utente il valore minimo
-let userMinNumber = parseInt(prompt('Inserisci il valore minimo del numero da generare'));
+// Input Vars
+const generateButton = document.getElementById('generate_button');
 
-// Chiedo all'utente il valore massimo
-let userMaxNumber = parseInt(prompt('Inserisci il valore massimo del numero da generare'));
+// Output Vars
+const errorMessage = document.getElementById('error_message');
+const resultGeneratedNumber = document.getElementById('generated_num_result');
 
-// Fino a quando non ha inserito un numero, chiedo di nuovo i valori
-while (isNaN(userMinNumber) || isNaN(userMaxNumber)) {
+generateButton.addEventListener('click', function () {
 
-    console.log('Valori non corretti. Inserire di nuovo i numeri');
-    userMinNumber = parseInt(prompt('Inserisci il valore minimo del numero da generare'));
-    userMaxNumber = parseInt(prompt('Inserisci il valore massimo del numero da generare'));
+    // Chiedo all'utente il valore minimo
+    let userMinNumber = parseInt(document.getElementById('min_number').value);
 
-}
+    // Chiedo all'utente il valore massimo
+    let userMaxNumber = parseInt(document.getElementById('max_number').value);
 
-// Genero un numero casuale con i valori che mi ha dato l'utente
-console.log(Math.floor(Math.random() * (userMaxNumber - userMinNumber + 1)) + userMinNumber);
+    // Se non sono stati inseriti i valori stampo messaggio di errore
+    if (isNaN(userMinNumber) || isNaN(userMaxNumber)) {
+        errorMessage.innerHTML = 'Errore. Inserire i valori corretti';
+        resultGeneratedNumber.innerHTML = '';
+    }
+    // Altrimenti tolgo il messaggio di errore e stampo il numero random tra il range
+    else {
+        errorMessage.innerHTML = '';
+        resultGeneratedNumber.innerHTML = `Il valore generato è: ${Math.floor(Math.random() * (userMaxNumber - userMinNumber + 1)) + userMinNumber}`;
+    }
+
+})
